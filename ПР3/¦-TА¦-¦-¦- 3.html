@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right bottom, #3498db, #2ecc71);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 400px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    #brand {
+      border-color: #3498db;
+    }
+
+    #model {
+      border-color: #e74c3c;
+    }
+
+    #year {
+      border-color: #2ecc71;
+    }
+
+    #color {
+      border-color: #f39c12;
+    }
+
+    #price {
+      border-color: #9b59b6;
+    }
+
+    #photo {
+      border-color: #27ae60;
+    }
+
+    #owners {
+      border-color: #e67e22;
+    }
+
+    #transmission {
+      border-color: #34495e;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .cars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .car1 {
+      position: absolute;
+      width: 120px;
+      top: 50px;
+      left: 50px;
+      animation: moveCar1 20s infinite linear;
+    }
+
+    .car2 {
+      position: absolute;
+      width: 120px;
+      top: 150px;
+      left: 200px;
+      animation: moveCar2 15s infinite linear;
+    }
+
+    @keyframes moveCar1 {
+      to {
+        transform: translate(400px, 0);
+      }
+    }
+
+    @keyframes moveCar2 {
+      to {
+        transform: translate(-200px, 0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      input,
+      select,
+      button {
+        font-size: 14px;
+      }
+    }
+  </style>
+  <title>Регистрация автомобиля</title>
+</head>
+
+<body>
+  <div class="car">
+    <img class="car2" src="/Users/alina/Desktop/Новая папка 6/Sport_car.webp" alt="Car 2">
+  </div>
+
+  <div class="form-container">
+    <form>
+      <label for="brand">Марка автомобиля:</label>
+      <input type="text" id="brand" name="brand" placeholder="Например, Toyota" required>
+
+      <label for="model">Модель автомобиля:</label>
+      <input type="text" id="model" name="model" placeholder="Например, Camry" required>
+
+      <label for="year">Год выпуска:</label>
+      <input type="number" id="year" name="year" min="1900" max="2023" required>
+
+      <label for="color">Цвет автомобиля:</label>
+      <input type="text" id="color" name="color" placeholder="Например, синий" required>
+
+      <label for="price">Цена:</label>
+      <input type="number" id="price" name="price" min="0" required>
+
+      <label for="photo">Фото автомобиля:</label>
+      <input type="file" id="photo" name="photo" accept="image/*" required>
+
+      <label for="owners">Количество владельцев:</label>
+      <select id="owners" name="owners" required>
+        <option value="1">1 владелец</option>
+        <option value="2">2 владельца</option>
+        <option value="3">3 владельца</option>
+        <option value="more">Более 3 владельцев</option>
+      </select>
+
+      <label for="transmission">Тип трансмиссии:</label>
+      <select id="transmission" name="transmission" required>
+        <option value="manual">Механика</option>
+        <option value="automatic">Автомат</option>
+      </select>
+
+      <button type="submit">Зарегистрировать автомобиль</button>
+    </form>
+  </div>
+</body>
+
+</html>
+
+
+
