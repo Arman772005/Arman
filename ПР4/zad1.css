@@ -1,0 +1,97 @@
+.tree {
+    height: 100%;
+    width: 356px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+.triangle {
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid green;
+}
+
+.trapez-shape{
+    border-bottom: 100px solid green;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    height: 0;
+    width: 100px;
+}
+
+.trapez-shape-third{
+    border-bottom: 100px solid green;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    height: 0;
+    width: 150px;
+}
+
+.stick {
+    background: brown;
+    width: 50px;
+    height: 80px;
+}
+
+.star{
+    display: flex;
+}
+
+.star-1 {
+    background: red;
+    width: 50px;
+    height: 50px;
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+.star-2 {
+    background: red;
+    width: 50px;
+    height: 50px;
+}
+
+.objects-circles {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+}
+
+.first-shape {
+    transform: translate(-50%);
+    top: 229px;
+}
+
+.second-shape {
+    transform: translate(-50%);
+    top: 120px;
+}
+
+.obj-2 {
+    border: 3px solid black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 50px;
+}
+
+.circle-1 {
+    background-color: red;
+}
+
+.circle-2 {
+    background-color: blue;
+}
+
+.container {
+    position: relative;
+}
