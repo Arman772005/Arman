@@ -1,0 +1,227 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right bottom, #3498db, #2ecc71);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 400px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    #brand {
+      border-color: #3498db;
+    }
+
+    #model {
+      border-color: #e74c3c;
+    }
+
+    #year {
+      border-color: #2ecc71;
+    }
+
+    #color {
+      border-color: #f39c12;
+    }
+
+    #price {
+      border-color: #9b59b6;
+    }
+
+    #photo {
+      border-color: #27ae60;
+    }
+
+    #owners {
+      border-color: #e67e22;
+    }
+
+    #transmission {
+      border-color: #34495e;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    @keyframes moveCar1 {
+      to {
+        transform: translate(400px, 0);
+      }
+    }
+
+    @keyframes moveCar2 {
+      to {
+        transform: translate(-200px, 0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      input,
+      select,
+      button {
+        font-size: 14px;
+      }
+    }
+  </style>
+  <title>Регистрация автомобиля</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var form = document.querySelector('form');
+  
+      form.addEventListener('submit', function (event) {
+        var brand = document.getElementById('brand').value;
+        var model = document.getElementById('model').value;
+        var year = document.getElementById('year').value;
+        var color = document.getElementById('color').value;
+        var price = document.getElementById('price').value;
+        var photo = document.getElementById('photo').value;
+        var owners = document.getElementById('owners').value;
+        var transmission = document.getElementById('transmission').value;
+  
+        var errors = [];
+  
+        if (!brand) {
+          errors.push('Введите марку автомобиля.');
+        }
+  
+        if (!model) {
+          errors.push('Введите модель автомобиля.');
+        }
+  
+        if (!year || year < 1900 || year > 2023) {
+          errors.push('Введите корректный год выпуска.');
+        }
+  
+        if (!color) {
+          errors.push('Введите цвет автомобиля.');
+        }
+  
+        if (!price || price < 0) {
+          errors.push('Введите корректную цену.');
+        }
+  
+        if (!photo) {
+          errors.push('Выберите фото автомобиля.');
+        }
+  
+        if (!owners) {
+          errors.push('Выберите количество владельцев.');
+        }
+  
+        if (!transmission) {
+          errors.push('Выберите тип трансмиссии.');
+        }
+  
+        if (errors.length > 0) {
+          event.preventDefault(); // Предотвращаем отправку формы
+  
+          alert('Пожалуйста, исправьте следующие ошибки:\n' + errors.join('\n'));
+        } else {
+          // Если ошибок нет, вы можете отправить форму или выполнить другие необходимые действия
+          alert('Форма успешно заполнена. Данные: \n' +
+            'Марка: ' + brand + '\n' +
+            'Модель: ' + model + '\n' +
+            'Год выпуска: ' + year + '\n' +
+            'Цвет: ' + color + '\n' +
+            'Цена: ' + price + '\n' +
+            'Фото: ' + photo + '\n' +
+            'Количество владельцев: ' + owners + '\n' +
+            'Тип трансмиссии: ' + transmission);
+  
+          // Очищаем поля формы
+          form.reset();
+        }
+      });
+    });
+  </script>
+  
+</head>
+
+<body>
+
+  <div class="form-container">
+    <form>
+      <label for="brand">Марка автомобиля:</label>
+      <input type="text" id="brand" name="brand" placeholder="Например, Toyota" required>
+
+      <label for="model">Модель автомобиля:</label>
+      <input type="text" id="model" name="model" placeholder="Например, Camry" required>
+
+      <label for="year">Год выпуска:</label>
+      <input type="number" id="year" name="year" min="1900" max="2023" required>
+
+      <label for="color">Цвет автомобиля:</label>
+      <input type="text" id="color" name="color" placeholder="Например, синий" required>
+
+      <label for="price">Цена:</label>
+      <input type="number" id="price" name="price" min="0" required>
+
+      <label for="photo">Фото автомобиля:</label>
+      <input type="file" id="photo" name="photo" accept="image/*" required>
+
+      <label for="owners">Количество владельцев:</label>
+      <select id="owners" name="owners" required>
+        <option value="1">1 владелец</option>
+        <option value="2">2 владельца</option>
+        <option value="3">3 владельца</option>
+        <option value="more">Более 3 владельцев</option>
+      </select>
+
+      <label for="transmission">Тип трансмиссии:</label>
+      <select id="transmission" name="transmission" required>
+        <option value="механика">Механика</option>
+        <option value="автомат">Автомат</option>
+      </select>
+
+      <button type="submit">Зарегистрировать автомобиль</button>
+    </form>
+  </div>
+</body>
+
+</html>
+
+
+
